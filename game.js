@@ -4,15 +4,23 @@ var rows;
 
 class Game {
   constructor() {
-      this.rowsGame = rows; 4;
-      this.columnsGame = columns; 4;
+      this.rowsGame = 4;
+      this.columnsGame = 4;
       this.sizeImage = 32;
-      this.time = 60s;
+      this.time = 60;
+      mappa [
+        [1,0,0,1];
+        [1,1,1,1];
+        [0,0,0,1];
+        [1,0,0,1];
+      ]
+
   }
 }
 
-class Mappa {
-  constructor(rows,columns, mappa) {
-
+class GameObject {
+  constructor(x,y) {
+    this.coordenadaY = y;
+    this.coordenadaX = x;
   }
 }

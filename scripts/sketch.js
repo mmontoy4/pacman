@@ -1,11 +1,14 @@
 
-var myGame = new Game();
+var myGame = new Game(); //Nou objecte Game
+
+
+
 function preload() {
   // put drawing code here
 }
 
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(myGame.sizeImage*myGame.rowsGame, myGame.sizeImage*myGame.columnsGame);
 }
 
 function draw() {

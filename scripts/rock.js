@@ -1,10 +1,10 @@
 class Rock extends GameObject {
-  constructor(x,y) {
-    super();
+  constructor(coordX,coordY) {
+    super(coordX,coordY);
   }
   show(){
-    //  preload img = loadImage();
-      image(rockImg, this.cordX, this.cordY);
+
+      image(rockImg, this.coordX, this.coordY); //Per mostrar-la, hem de posar la roca al preload.
     }
 
   }

@@ -1,22 +1,21 @@
-
 var myGame = new Game(); //Nou objecte Game
 
+var arrayrocks = [];
 
+var rock = new Rock();
 
 function preload() {
   // put drawing code here
+  var rockImg = loadImage("images/roca.bmp");
 }
 
 function setup() {
+
   createCanvas(myGame.sizeImage*myGame.rowsGame, myGame.sizeImage*myGame.columnsGame);
+  arrayrocks.push(new Rock(32,32));
 }
 
 function draw() {
 
-  if (mouseIsPressed) {
-    fill(0);
-  } else {
-    fill(255);
-  }
-  ellipse(mouseX, mouseY, 80, 80);
+  arrayrocks[].show();
 }

@@ -1,7 +1,7 @@
 
 class GameObject {
-  constructor(x,y) {
-    this.coordenadaY = y;
-    this.coordenadaX = x;
+    constructor(x,y) {
+   this.coordX = x;
+   this.coordY = y;
+   }
   }
-}

@@ -5,5 +5,3 @@ class GameObject {
     this.coordenadaX = x;
   }
 }
-
-var myObject = new GameObject(50,40);

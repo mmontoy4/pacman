@@ -8,5 +8,3 @@ class Rock extends GameObject {
     }
 
   }
-
-//var rock = new rock(200,50);

@@ -1,4 +1,5 @@
 
+var myGame = new Game();
 function preload() {
   // put drawing code here
 }

@@ -10,12 +10,18 @@ function preload() {
 }
 
 function setup() {
+  createCanvas(COLUMNS * IMAGE_SIZE, ROWS * IMAGE_SIZE + HEIGHT_TEXT);
 
-  createCanvas(myGame.sizeImage*myGame.rowsGame, myGame.sizeImage*myGame.columnsGame);
-  arrayrocks.push(new Rock(32,32));
-}
+  myGame = new Game();
 
-function draw() {
+  for(var i = 0; i < myGame.rowsGame; i++)
+  for (var j = 0; j < myGame.columnsGame; j++) {
+    if (myGame.mapa[i][j] == 0) {
+    }
+  }
 
-  arrayrocks[].show();
-}
+  function draw() {
+    for (var i = 0; i < arrayrocks.length; i++) {
+      console.log("Faig sortir una roca:" + i);
+      arrayrocks[i].show();
+    }

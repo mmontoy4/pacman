@@ -1,11 +1,10 @@
-function Food(x,y){
-  this.x=x;
-  this.y=y;
+class Food extends GameObject {
 
-  this.show = function(){
-
-    image(foodImage, this.x, this.y);
+  constructor(coordX,coordY) {
+    super(coordX,coordY);
+  }
+  show(){
+      image(foodImg, this.coordX, this.coordY); //Per mostrar-la, hem de posar el menjar al preload.
+    }
 
   }
-
-}

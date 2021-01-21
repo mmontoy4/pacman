@@ -3,11 +3,14 @@ var myGame = new Game(); //Nou objecte Game
 var arrayrocks = [];
 var rockImg;
 
+
 var rock = new Rock();
+
 
 function preload() {
   // put drawing code here
   rockImg = loadImage("images/roca.bmp");
+
 };
 
 function setup() {

@@ -1,16 +1,12 @@
 var myGame = new Game(); //Nou objecte Game
 
-var arrayrocks = [];
-var pacman;
-var rockImg;
-var pacDreta;
-var pacAvall;
-var pacEsquerra;
-var pacAmunt;
-
-
-var rock = new Rock();
-
+let arrayrocks = [];
+let pacman;
+let rockImg;
+let pacDreta;
+let pacAvall;
+let pacEsquerra;
+let pacAmunt;
 
 function preload() {
   // put drawing code here
@@ -20,7 +16,7 @@ function preload() {
   pacEsquerra = loadImage("images/pac3.png");
   pacAmunt = loadImage("images/pac4.png");
 
-};
+}
 
 function setup() {
   createCanvas(myGame.columnsGame * myGame.sizeImage, myGame.rowsGame * myGame.sizeImage);
@@ -34,22 +30,37 @@ function setup() {
       }
   }
 
-}; //acabo setup
+} //acabo setup
 
   function draw() {
+    background(51);
     for (let i = 0; i < arrayrocks.length; i++) {
       console.log("Faig sortir una roca:" + i);
       arrayrocks[i].show();
     }
-    
+
     if(pacman.direction === 1){
-      show(pacDreta);
+      pacman.show(pacDreta);
     }else if(pacman.direction === 2){
-      show(pacEsquerra);
+      pacman.show(pacEsquerra);
     }else if(pacman.direction === 3){
-      show(pacAmunt);
-    }else{
-      show(pacAvall);
+      pacman.show(pacAmunt);
+    }else if(pacman.direction === 4){
+      pacman.show(pacAvall);
     }
 
-  }; //function draw
+  } //function draw
+
+function keyPressed() {
+  if (keyCode === UP_ARROW) {
+    pacman.moveUpper()
+  } else if (keyCode === DOWN_ARROW) {
+    pacman.moveDown();
+  }
+  if (keyCode === LEFT_ARROW) {
+    pacman.moveLeft();
+  } else if (keyCode === RIGHT_ARROW) {
+    pacman.moveRight();
+  }
+
+}

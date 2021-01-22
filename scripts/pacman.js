@@ -16,24 +16,32 @@ class Pacman extends GameObject {
   3 - Amunt
   4 - Avall
   */
-  showUpper(){
-    this.coordY = this.coordY - myGame.SIZE_IMAGE;
-    this.direction = 3;
+  moveUpper(){
+     if(this.coordY - myGame.sizeImage >= 0) {
+      this.coordY = this.coordY - myGame.sizeImage;
+      this.direction = 3;
+     }
   }
 
-  showDown(){
-    this.coordY = this.coordY + myGame.SIZE_IMAGE;
+  moveDown(){
+    if(this.coordY + myGame.sizeImage < myGame.sizeImage*myGame.rowsGame){
+    this.coordY = this.coordY + myGame.sizeImage;
     this.direction = 4;
+    }
   }
 
-  showRight(){
-    this.coordX = this.coordX - myGame.SIZE_IMAGE;
-    this.direction = 1;
+  moveRight(){
+    if(this.coordX + myGame.sizeImage < myGame.sizeImage*myGame.columnsGame){
+      this.coordX = this.coordX + myGame.sizeImage;
+      this.direction = 1;
+    }
   }
 
-  showLeft(){
-    this.coordX = this.coordX + myGame.SIZE_IMAGE;
-    this.direction = 2;
+  moveLeft(){
+    if(this.coordX - myGame.sizeImage >= 0){
+      this.coordX = this.coordX - myGame.sizeImage;
+      this.direction = 2;
+    }
   }
 
   }

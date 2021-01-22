@@ -10,6 +10,10 @@ class Pacman extends GameObject {
       image(img, this.coordX, this.coordY); //Per mostrar-la, hem de posar el pacman al preload.
     }
 
+    showInstanceMode(p,img){
+        p.image(img, this.coordX, this.coordY); //Per mostrar-la, hem de posar el pacman al preload.
+      }
+
   /*
   1 - Dreta
   2 - Esquerra
@@ -23,15 +27,15 @@ class Pacman extends GameObject {
      }
   }
 
-  moveDown(){
-    if(this.coordY + myGame.sizeImage < myGame.sizeImage*myGame.rowsGame){
+  moveDown(imatgetamany,amplejoc){
+    if(this.coordY + imatgetamany < amplejoc){
     this.coordY = this.coordY + myGame.sizeImage;
     this.direction = 4;
     }
   }
 
-  moveRight(){
-    if(this.coordX + myGame.sizeImage < myGame.sizeImage*myGame.columnsGame){
+  moveRight(imatgetamany,amplejoc){
+    if(this.coordX + imatgetamany < amplejoc){
       this.coordX = this.coordX + myGame.sizeImage;
       this.direction = 1;
     }

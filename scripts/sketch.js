@@ -4,6 +4,8 @@ var myGame = new Game(); //Nou objecte Game
 const s = (p) => {
 
   var arrayrocks = [];
+  var arrayfood = [];
+  var foodImg;
   var pacman;
   var rockImg;
   var pacDreta;
@@ -19,6 +21,7 @@ try{
     pacAvall = p.loadImage("images/pac2.png");
     pacEsquerra = p.loadImage("images/pac3.png");
     pacAmunt = p.loadImage("images/pac4.png");
+    foodImg = p.loadImage("images/food.png");
 
   };
 }catch(error){
@@ -29,7 +32,7 @@ try{
   p.setup = function() {
     p.createCanvas(myGame.columnsGame * myGame.sizeImage, myGame.rowsGame * myGame.sizeImage);
 
-    pacman = new Pacman(10 * myGame.sizeImage, 10 * myGame.sizeImage);
+    pacman = new Pacman(10 * myGame.sizeImage, 11 * myGame.sizeImage);
 
     for (let i = 0; i < myGame.rowsGame; i++)
       for (let j = 0; j < myGame.columnsGame; j++) {
@@ -37,6 +40,13 @@ try{
           arrayrocks.push(new Rock(j * myGame.sizeImage, i * myGame.sizeImage));
         }
       }
+
+      for (let i = 0; i < myGame.rowsGame; i++)
+        for (let j = 0; j < myGame.columnsGame; j++) {
+          if (myGame.mapa[i][j] === 2) {
+            arrayfood.push(new Food(j * myGame.sizeImage, i * myGame.sizeImage));
+          }
+        }
 
   }; //acabo setup
 }catch(error){
@@ -47,6 +57,11 @@ try{
     for (let i = 0; i < arrayrocks.length; i++) {
       //console.log("Faig sortir una roca:" + i);
       arrayrocks[i].showInstanceMode(p, rockImg);
+    }
+
+    for (let i = 0; i < arrayfood.length; i++){
+      console.log("Fa sortir menjar." + i);
+      arrayfood[i].showInstanceMode(p, foodImg);
     }
 
     if (pacman.direction === 1) {

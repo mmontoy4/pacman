@@ -5,6 +5,11 @@ const s = (p) => {
 
   var arrayrocks = [];
   var arrayfood = [];
+  var arrayghost = [];
+  var ghostGreen;
+  var ghostPink;
+  var ghostPurple;
+  var ghostRed;
   var foodImg;
   var pacman;
   var rockImg;
@@ -22,6 +27,10 @@ try{
     pacEsquerra = p.loadImage("images/pac3.png");
     pacAmunt = p.loadImage("images/pac4.png");
     foodImg = p.loadImage("images/food.png");
+    ghostGreen = p.loadImage("images/green.png");
+    ghostPink = p.loadImage("images/pink.png");
+    ghostPurple = p.loadImage("images/purple.png");
+    ghostRed = p.loadImage("images/red.png");
 
   };
 }catch(error){
@@ -55,7 +64,7 @@ try{
   p.draw = function() {
     p.background(51);
     for (let i = 0; i < arrayrocks.length; i++) {
-      //console.log("Faig sortir una roca:" + i);
+      console.log("Faig sortir una roca:" + i);
       arrayrocks[i].showInstanceMode(p, rockImg);
     }
 

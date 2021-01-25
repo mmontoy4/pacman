@@ -11,6 +11,7 @@ const s = (p) => {
   var pacEsquerra;
   var pacAmunt;
 
+try{
   p.preload = function() {
     // put drawing code here
     rockImg = p.loadImage("images/roca.bmp");
@@ -20,7 +21,11 @@ const s = (p) => {
     pacAmunt = p.loadImage("images/pac4.png");
 
   };
+}catch(error){
+  console.log("No s'ha pogut carregar correctament les imatges.");
+}
 
+try{
   p.setup = function() {
     p.createCanvas(myGame.columnsGame * myGame.sizeImage, myGame.rowsGame * myGame.sizeImage);
 
@@ -34,7 +39,9 @@ const s = (p) => {
       }
 
   }; //acabo setup
-
+}catch(error){
+  console.log("No s'ha pogut iniciar correctament el joc.");
+}
   p.draw = function() {
     p.background(51);
     for (let i = 0; i < arrayrocks.length; i++) {

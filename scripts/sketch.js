@@ -6,8 +6,10 @@ const s = (p) => {
   var arrayrocks = [];
   var arrayfood = [];
   var arrayghost = [];
+  var arrayfruit = [];
   var ghostImg;
   var foodImg;
+  var fruitImg;
   var pacman;
   var rockImg;
   var pacDreta;
@@ -25,6 +27,7 @@ try{
     pacAmunt = p.loadImage("images/pac4.png");
     foodImg = p.loadImage("images/food.png");
     ghostImg = p.loadImage("images/ghost.png");
+    fruitImg = p.loadImage("images/grape.png");
 
   };
 }catch(error){
@@ -58,6 +61,14 @@ try{
             }
           }
 
+          for (let i = 0; i < myGame.rowsGame; i++)
+            for (let j = 0; j < myGame.columnsGame; j++) {
+              if (myGame.mapa[i][j] === 4) {
+                arrayfruit.push(new Fruit(j * myGame.sizeImage, i * myGame.sizeImage));
+              }
+            }
+
+
   }; //acabo setup
 }catch(error){
   console.log("No s'ha pogut iniciar correctament el joc.");
@@ -79,6 +90,11 @@ try{
       arrayghost[i].showInstanceMode(p, ghostImg);
     }
 
+    for (let i = 0; i < arrayfruit.length; i++){
+      console.log("Fa sortir fruita." + i);
+      arrayfruit[i].showInstanceMode(p, fruitImg);
+    }
+
     if (pacman.direction === 1) {
       pacman.showInstanceMode(p,pacDreta);
     } else if (pacman.direction === 2) {
@@ -89,7 +105,7 @@ try{
       pacman.showInstanceMode(p,pacAvall);
     }
 
-  }; //function draw
+  } //function draw
 
   p.keyPressed = function() {
 

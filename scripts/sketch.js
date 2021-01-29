@@ -6,10 +6,7 @@ const s = (p) => {
   var arrayrocks = [];
   var arrayfood = [];
   var arrayghost = [];
-  var ghostGreen;
-  var ghostPink;
-  var ghostPurple;
-  var ghostRed;
+  var ghostImg;
   var foodImg;
   var pacman;
   var rockImg;
@@ -27,10 +24,7 @@ try{
     pacEsquerra = p.loadImage("images/pac3.png");
     pacAmunt = p.loadImage("images/pac4.png");
     foodImg = p.loadImage("images/food.png");
-    ghostGreen = p.loadImage("images/green.png");
-    ghostPink = p.loadImage("images/pink.png");
-    ghostPurple = p.loadImage("images/purple.png");
-    ghostRed = p.loadImage("images/red.png");
+    ghostImg = p.loadImage("images/ghost.png");
 
   };
 }catch(error){
@@ -57,6 +51,13 @@ try{
           }
         }
 
+        for (let i = 0; i < myGame.rowsGame; i++)
+          for (let j = 0; j < myGame.columnsGame; j++) {
+            if (myGame.mapa[i][j] === 3) {
+              arrayghost.push(new Ghost(j * myGame.sizeImage, i * myGame.sizeImage));
+            }
+          }
+
   }; //acabo setup
 }catch(error){
   console.log("No s'ha pogut iniciar correctament el joc.");
@@ -71,6 +72,11 @@ try{
     for (let i = 0; i < arrayfood.length; i++){
       console.log("Fa sortir menjar." + i);
       arrayfood[i].showInstanceMode(p, foodImg);
+    }
+
+    for (let i = 0; i < arrayghost.length; i++){
+      console.log("Fa sortir fantasma." + i);
+      arrayghost[i].showInstanceMode(p, ghostImg);
     }
 
     if (pacman.direction === 1) {

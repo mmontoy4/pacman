@@ -10,7 +10,7 @@ const s = (p) => {
   var arrayfruit = [];
   var ghostImg;
   var foodImg;
-  var fruitImg;
+  //var fruitImg;
   var pacman;
   var rockImg;
   var pacDreta;
@@ -28,7 +28,7 @@ try{
     pacAmunt = p.loadImage("images/pac4.png");
     foodImg = p.loadImage("images/food.png");
     ghostImg = p.loadImage("images/ghost.png");
-    fruitImg = p.loadImage("images/grape.png");
+    //fruitImg = p.loadImage("images/grape.png");
 
   };
 }catch(error){
@@ -65,7 +65,7 @@ try{
           for (let i = 0; i < myGame.rowsGame; i++)
             for (let j = 0; j < myGame.columnsGame; j++) {
               if (myGame.mapa[i][j] === 4) {
-                arrayfruit.push(new Fruit(j * myGame.sizeImage, i * myGame.sizeImage));
+                //arrayfruit.push(new Fruit(j * myGame.sizeImage, i * myGame.sizeImage));
               }
             }
 
@@ -77,22 +77,22 @@ try{
   p.draw = function() {
     p.background(51);
     for (let i = 0; i < arrayrocks.length; i++) {
-      console.log("Faig sortir una roca:" + i);
+      //console.log("Faig sortir una roca:" + i);
       arrayrocks[i].showInstanceMode(p, rockImg);
     }
 
     for (let i = 0; i < arrayfood.length; i++){
-      console.log("Fa sortir menjar." + i);
+      //console.log("Fa sortir menjar." + i);
       arrayfood[i].showInstanceMode(p, foodImg);
     }
 
     for (let i = 0; i < arrayghost.length; i++){
-      console.log("Fa sortir fantasma." + i);
+      //console.log("Fa sortir fantasma." + i);
       arrayghost[i].showInstanceMode(p, ghostImg);
     }
 
     for (let i = 0; i < arrayfruit.length; i++){
-      console.log("Fa sortir fruita." + i);
+      //console.log("Fa sortir fruita." + i);
       arrayfruit[i].showInstanceMode(p, fruitImg);
     }
 
@@ -100,6 +100,19 @@ try{
     for (let i = 0; i < arrayrocks.length; i++){
         pacman.testCollideRock(p,arrayrocks[i]);
     }
+
+//Control de xoc amb el menjar i la seva desaparició
+    for (let i = 0; i < arrayfood.length; i++){
+      if ( pacman.testCollideFood(p,arrayfood[i])){
+        //arrayfood = arrayfood.filter(item => item !== arrayfood[i]);
+        pacman.score = pacman.score + arrayfood[i].score;
+        arrayfood.splice(i,1);
+      }else{
+        console.log("No xoco, menjar");
+      }
+      
+    }
+
 
     if (pacman.direction === 1) {
       pacman.showInstanceMode(p,pacDreta);

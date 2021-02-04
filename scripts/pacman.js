@@ -6,6 +6,7 @@ class Pacman extends GameObject {
     super(coordX,coordY);
     this.vides = 3;
     this.speed = SPEED_PACMAN;
+    this.score = 0;
     this.direction = 1;
   }
   show(img){

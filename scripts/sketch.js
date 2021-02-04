@@ -1,5 +1,6 @@
 
 var myGame = new Game(); //Nou objecte Game
+var myPacman = new Pacman(); //creo un pacman
 
 const s = (p) => {
 
@@ -95,6 +96,11 @@ try{
       arrayfruit[i].showInstanceMode(p, fruitImg);
     }
 
+//Evitar xocar amb les roques
+    for (let i = 0; i < arrayrocks.length; i++){
+        pacman.testCollideRock(p,arrayrocks[i]);
+    }
+
     if (pacman.direction === 1) {
       pacman.showInstanceMode(p,pacDreta);
     } else if (pacman.direction === 2) {
@@ -120,7 +126,7 @@ try{
     if (p.keyCode === p.LEFT_ARROW) {
       pacman.moveLeft();
     } else if (p.keyCode === p.RIGHT_ARROW) {
-      console.log("muvo derecha");
+      console.log("muevo derecha");
       pacman.moveRight(imatgetamany, amplejoc);
     }
 

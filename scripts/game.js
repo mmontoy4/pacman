@@ -2,7 +2,6 @@ const ROWS = 20;
 const COLUMNS = 20;
 const SIZE_IMAGE = 32;
 const HEIGHT_TEXT = 64;
-const SPEED = 1.0;
 const MAX_LIVES = 5;
 
 class Game {

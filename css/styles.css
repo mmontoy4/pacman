@@ -1,5 +1,5 @@
 html{
-  background-color: #b28ff0;
+  background-color: #ffcc5c;
 }
 body {
   padding: 0;
@@ -8,10 +8,14 @@ body {
 /*Barra de navegació*/
 ul {
   list-style-type: none;
+  font-family: 'Denk One', sans-serif;
+  font-size: 20px;
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #333;
+  background-color: #ff6f69;
+  border-top: 3px solid black;
+  border-bottom: 3px solid black;
 }
 
 li {
@@ -27,15 +31,28 @@ li a {
 }
 
 li a:hover:not(.active) {
-  background-color: #111;
+  background-color: #d96459;
 }
 
 .active {
-  background-color: #763ae0;
+  background-color: #ffeead;
+  color: black;
 }
 /*Contenedor PACMAN*/
 #myContainer{
-    position:absolute;
-    top: 100px;
-    right:50%;
+    position:relative;
+    top: 180px;
+    left: 30%;
+    right: 10%;
+}
+
+header{
+  background-color: #96ceb4;
+}
+
+.paclogo{
+  margin-left: 33.33%;
+  padding-top: 30px;
+  padding-bottom: 10px;
+
 }

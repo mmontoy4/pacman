@@ -40,10 +40,9 @@ li a:hover:not(.active) {
 }
 /*Contenedor PACMAN*/
 #myContainer{
-    position:relative;
-    top: 180px;
-    left: 30%;
-    right: 10%;
+    position:absolute;
+    top: 300px;
+    right:33.333%;
 }
 
 header{
@@ -51,8 +50,13 @@ header{
 }
 
 .paclogo{
-  margin-left: 33.33%;
+  margin-left: 33.333%;
+  margin-right:33.333%;
   padding-top: 30px;
   padding-bottom: 10px;
 
+}
+
+#temps{
+  position: absolute;
 }

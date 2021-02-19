@@ -176,4 +176,3 @@ const a = (d) => {
 };
 
 let myp5 = new p5(s, 'myContainer');
-let myp6 = new p6(a, 'temps');

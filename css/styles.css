@@ -41,7 +41,7 @@ li a:hover:not(.active) {
 /*Contenedor PACMAN*/
 #myContainer{
     position:absolute;
-    top: 300px;
+    top: 280px;
     right:33.333%;
 }
 
@@ -55,11 +55,4 @@ header{
   padding-top: 30px;
   padding-bottom: 10px;
 
-}
-
-#temps{
-  position: relative;
-  margin: 200px;
-  width: 300px;
-  border: 3px solid black;
 }

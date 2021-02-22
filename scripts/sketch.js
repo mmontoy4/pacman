@@ -16,6 +16,8 @@ const s = (p) => {
   var pacAvall;
   var pacEsquerra;
   var pacAmunt;
+  var timer = 5;
+  const HEIGHT_TEXT = 30;
 
   try {
     p.preload = function() {
@@ -36,7 +38,7 @@ const s = (p) => {
 
   try {
     p.setup = function() {
-      p.createCanvas(myGame.columnsGame * myGame.sizeImage, myGame.rowsGame * myGame.sizeImage);
+      p.createCanvas(myGame.columnsGame * myGame.sizeImage, myGame.rowsGame * myGame.sizeImage+ HEIGHT_TEXT);
 
       pacman = new Pacman(10 * myGame.sizeImage, 11 * myGame.sizeImage);
 
@@ -122,6 +124,31 @@ const s = (p) => {
       pacman.showInstanceMode(p, pacAvall);
     }
 
+    p.fill(255);
+    p.textSize(20);
+    p.text(timer, 470, 660);
+
+      // while (timer > 0) {  // this doesn't work because it's all happening at the same time
+      //   timer --;
+      // }
+
+      // frameCount --> this keeps track of the number of times the program has gone throught the code, 60 = 1 second
+      // % ---> this is the Modulo operator, it divides numbers and evaluates to the remainder: 17 % 5 evaluates to 2 remainder
+      // this can be used to determine if the number on the left is divisible by the number on the right
+
+      if (p.frameCount % 60 == 0 && timer > 0) { // if the frameCount is divisible by 60, then a second has passed. it will stop at 0
+        timer --;
+
+      }
+
+      if (timer == 0) {
+        p.text("GAME OVER", 500,660);
+
+      } //acacbo temporitzador
+
+      p.text("Score: "+"1000"+"  | ", 320, 660)
+
+
   } //function draw
 
   p.keyPressed = function() {
@@ -142,37 +169,6 @@ const s = (p) => {
     }
 
   };
-};
-
-const a = (d) => {
-  var timerValue = 10;
-
-  d.preload = function() {}
-  d.setup = function() {
-    createCanvas(400, 100);
-    textAlign(CENTER);
-    setInterval(timeIt, 1000);
-  }
-  d.draw = function() {
-
-    background(51);
-    if (timerValue >= 10) {
-      text("0:" + timerValue, width / 2, height / 2);
-    }
-    if (timerValue < 10) {
-      text('0:0' + timerValue, width / 2, height / 2);
-    }
-    if (timerValue == 0) {
-      text('game over', width / 2, height / 2 + 15);
-    }
-  }
-
-  function timeIt() {
-    if (timerValue > 0) {
-      timerValue--;
-    }
-  };
-
 };
 
 let myp5 = new p5(s, 'myContainer');

@@ -92,6 +92,6 @@ class Pacman extends GameObject {
       }
     }
 
-  
+
 
 } //Fi classe Pacman

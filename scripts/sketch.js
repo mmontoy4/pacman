@@ -89,13 +89,14 @@ const s = (p) => {
       arrayfood[i].showInstanceMode(p, foodImg);
     }
 
+    for (let i = 0; i < arraycor.length; i++) {
+
+      arraycor[i].showInstanceMode(p, corImg);
+    }
+
     for (let i = 0; i < arrayghost.length; i++) {
       //console.log("Fa sortir fantasma." + i);
       arrayghost[i].showInstanceMode(p, ghostImg);
-    }
-
-    for (let i = 0; i < arraycor.length; i++) {
-        arraycor[i].showInstanceMode(p, corImg);
     }
 
     //Evitar xocar amb les roques
@@ -111,6 +112,16 @@ const s = (p) => {
         arrayfood.splice(i, 1);
       } else {
         console.log("No xoco, menjar");
+      }
+
+
+      for (let i = 0; i < arraycor.length; i++) {
+          if(pacman.testCollideCor(p, arraycor[i])){
+            pacman.vides = pacman.vides + arraycor[i].vides;
+            arraycor.slice(i, 1);
+          } else {
+            console.log("No xoco amb el cor");
+          }
       }
 
     }
@@ -153,9 +164,18 @@ const s = (p) => {
       p.text(pacman.vides+" vides", 100, 660);
 
 
+
+
   } //function draw
 
   p.keyPressed = function() {
+
+  //  p.noloop();
+
+    if(timer===0){
+
+    }else{
+
 
     let amplejoc = myGame.columnsGame * myGame.sizeImage;
     let imatgetamany = myGame.sizeImage;
@@ -171,6 +191,8 @@ const s = (p) => {
       console.log("muevo derecha");
       pacman.moveRight(imatgetamany, amplejoc);
     }
+}//if timer===0
+//    p.loop();
 
     };
   };

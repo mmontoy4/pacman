@@ -92,4 +92,20 @@ class Pacman extends GameObject {
       }
     }
 
+    testCollideCor(p, cor) {
+
+      let distancia = p.dist(this.coordX, this.coordY, cor.coordX, cor.coordY);
+
+      if (distancia < 10) {
+            return true;
+        }
+        else {
+          //No xoquem
+          console.log("no xoquem");
+          return false;
+        }
+      }
+
+
+
 } //Fi classe Pacman

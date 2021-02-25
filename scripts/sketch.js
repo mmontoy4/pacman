@@ -7,16 +7,18 @@ const s = (p) => {
   var arrayfood = [];
   var arrayghost = [];
   var arrayfruit = [];
+  var arraycor= [];
   var ghostImg;
   var foodImg;
   //var fruitImg;
+  var corImg;
   var pacman;
   var rockImg;
   var pacDreta;
   var pacAvall;
   var pacEsquerra;
   var pacAmunt;
-  var timer = 5;
+  var timer = 60;
   const HEIGHT_TEXT = 30;
 
   try {
@@ -30,6 +32,7 @@ const s = (p) => {
       foodImg = p.loadImage("images/food.png");
       ghostImg = p.loadImage("images/ghost.png");
       //fruitImg = p.loadImage("images/grape.png");
+      corImg = p.loadImage("images/cor.png");
 
     };
   } catch (error) {
@@ -63,12 +66,12 @@ const s = (p) => {
           }
         }
 
-      for (let i = 0; i < myGame.rowsGame; i++)
-        for (let j = 0; j < myGame.columnsGame; j++) {
-          if (myGame.mapa[i][j] === 4) {
-            //arrayfruit.push(new Fruit(j * myGame.sizeImage, i * myGame.sizeImage));
+        for (let i = 0; i < myGame.rowsGame; i++)
+          for (let j = 0; j < myGame.columnsGame; j++) {
+            if (myGame.mapa[i][j] === 4) {
+              arraycor.push(new Cor(j * myGame.sizeImage, i * myGame.sizeImage));
+            }
           }
-        }
 
     }; //acabo setup
   } catch (error) {
@@ -92,10 +95,15 @@ const s = (p) => {
       arrayghost[i].showInstanceMode(p, ghostImg);
     }
 
-    for (let i = 0; i < arrayfruit.length; i++) {
-      //console.log("Fa sortir fruita." + i);
-      arrayfruit[i].showInstanceMode(p, fruitImg);
-    }
+    /*for (let i = 0; i < arraycor.length; i++) {
+     if(pacman.testCollideCor(p,arrayscor[i])){
+      pacman.vides = pacman.vides + arraycor[i].vides;
+      arraycor.splice(i, 1);
+    } else {
+      console.log("No xoco, cor");
+    }*/
+
+
 
     //Evitar xocar amb les roques
     for (let i = 0; i < arrayrocks.length; i++) {
@@ -126,7 +134,7 @@ const s = (p) => {
 
     p.fill(255);
     p.textSize(20);
-    p.text(timer, 470, 660);
+    p.text(timer+"s", 470, 660);
 
       // while (timer > 0) {  // this doesn't work because it's all happening at the same time
       //   timer --;
@@ -144,9 +152,12 @@ const s = (p) => {
       if (timer == 0) {
         p.text("GAME OVER", 500,660);
 
+
       } //acacbo temporitzador
 
-      p.text("Score: "+"1000"+"  | ", 320, 660)
+      p.text(pacman.score+" punts", 320, 660);
+
+      p.text(pacman.vides+" vides", 100, 660);
 
 
   } //function draw

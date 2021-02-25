@@ -4,7 +4,7 @@ class Pacman extends GameObject {
 
   constructor(coordX, coordY) {
     super(coordX, coordY);
-    this.vides = 3;
+    this.vides = 5;
     this.speed = SPEED_PACMAN;
     this.score = 0;
     this.direction = 1;
@@ -91,6 +91,20 @@ class Pacman extends GameObject {
         return false;
       }
     }
+
+    testCollideCor(p, cor) {
+
+      let distancia = p.dist(this.coordX, this.coordY, cor.coordX, cor.coordY);
+
+      if (distancia < 10) {
+            return true;
+        }
+        else {
+          //No xoquem
+          console.log("no xoquem");
+          return false;
+        }
+      }
 
 
 

@@ -6,7 +6,6 @@ const s = (p) => {
   var arrayrocks = [];
   var arrayfood = [];
   var arrayghost = [];
-  var arrayfruit = [];
   var arraycor= [];
   var ghostImg;
   var foodImg;
@@ -95,15 +94,9 @@ const s = (p) => {
       arrayghost[i].showInstanceMode(p, ghostImg);
     }
 
-    /*for (let i = 0; i < arraycor.length; i++) {
-     if(pacman.testCollideCor(p,arrayscor[i])){
-      pacman.vides = pacman.vides + arraycor[i].vides;
-      arraycor.splice(i, 1);
-    } else {
-      console.log("No xoco, cor");
-    }*/
-
-
+    for (let i = 0; i < arraycor.length; i++) {
+        arraycor[i].showInstanceMode(p, corImg);
+    }
 
     //Evitar xocar amb les roques
     for (let i = 0; i < arrayrocks.length; i++) {
@@ -179,7 +172,7 @@ const s = (p) => {
       pacman.moveRight(imatgetamany, amplejoc);
     }
 
+    };
   };
-};
 
 let myp5 = new p5(s, 'myContainer');

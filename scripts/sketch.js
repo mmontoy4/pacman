@@ -45,7 +45,11 @@ const s = (p) => {
   try {
     p.setup = function() {
       p.createCanvas(myGame.columnsGame * myGame.sizeImage, myGame.rowsGame * myGame.sizeImage+ HEIGHT_TEXT);
-      songStart.play();
+
+      if(timer>0){
+          songStart.play();
+      }
+
       pacman = new Pacman(10 * myGame.sizeImage, 11 * myGame.sizeImage);
 
       for (let i = 0; i < myGame.rowsGame; i++)
@@ -75,6 +79,7 @@ const s = (p) => {
               arraycor.push(new Cor(j * myGame.sizeImage, i * myGame.sizeImage));
             }
           }
+
 
     }; //acabo setup
   } catch (error) {
@@ -140,9 +145,7 @@ const s = (p) => {
       pacman.showInstanceMode(p, pacAvall);
     }
 
-    p.fill(255);
-    p.textSize(20);
-    p.text(timer+"s", 470, 660);
+
 
       // while (timer > 0) {  // this doesn't work because it's all happening at the same time
       //   timer --;
@@ -159,14 +162,22 @@ const s = (p) => {
 
       if (timer === 0) {
         p.text("GAME OVER", 500,660);
-        songFinale.play();
 
       } //acacbo temporitzador
+
 
 
       p.text(pacman.score+" punts", 320, 660);
 
       p.text(pacman.vides+" vides", 100, 660);
+
+      p.fill(255);
+      p.textSize(20);
+      p.text(timer+"s", 470, 660);
+      if(timer === 0){
+        songFinale.play();
+        no.loop();
+      }
 
 
   } //function draw

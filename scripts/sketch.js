@@ -1,6 +1,6 @@
 var myGame = new Game(); //Nou objecte Game
 var myPacman = new Pacman(); //creo un pacman
-
+//var myUser = new User(); //usuari localstorage
 const s = (p) => {
 
   var arrayrocks = [];
@@ -17,8 +17,10 @@ const s = (p) => {
   var pacAvall;
   var pacEsquerra;
   var pacAmunt;
-  var timer = 60;
+  var timer = 10;
   const HEIGHT_TEXT = 30;
+  var songStart;
+  var songFinale;
 
   try {
     p.preload = function() {
@@ -32,6 +34,8 @@ const s = (p) => {
       ghostImg = p.loadImage("images/ghost.png");
       //fruitImg = p.loadImage("images/grape.png");
       corImg = p.loadImage("images/cor.png");
+      songStart = p.loadSound('sounds/pacman_beginning.mp3');
+      songFinale = p.loadSound('sounds/pacman_death.mp3');
 
     };
   } catch (error) {
@@ -41,7 +45,7 @@ const s = (p) => {
   try {
     p.setup = function() {
       p.createCanvas(myGame.columnsGame * myGame.sizeImage, myGame.rowsGame * myGame.sizeImage+ HEIGHT_TEXT);
-
+      songStart.play();
       pacman = new Pacman(10 * myGame.sizeImage, 11 * myGame.sizeImage);
 
       for (let i = 0; i < myGame.rowsGame; i++)
@@ -153,17 +157,16 @@ const s = (p) => {
 
       }
 
-      if (timer == 0) {
+      if (timer === 0) {
         p.text("GAME OVER", 500,660);
-
+        songFinale.play();
 
       } //acacbo temporitzador
+
 
       p.text(pacman.score+" punts", 320, 660);
 
       p.text(pacman.vides+" vides", 100, 660);
-
-
 
 
   } //function draw
@@ -175,7 +178,6 @@ const s = (p) => {
     if(timer===0){
 
     }else{
-
 
     let amplejoc = myGame.columnsGame * myGame.sizeImage;
     let imatgetamany = myGame.sizeImage;

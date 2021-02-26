@@ -21,6 +21,8 @@ const s = (p) => {
   const HEIGHT_TEXT = 30;
   var songStart;
   var songFinale;
+  var songEating;
+  var songVidesExtra;
 
   try {
     p.preload = function() {
@@ -36,6 +38,8 @@ const s = (p) => {
       corImg = p.loadImage("images/cor.png");
       songStart = p.loadSound('sounds/pacman_beginning.mp3');
       songFinale = p.loadSound('sounds/pacman_death.mp3');
+      songEating = p.loadSound('sounds/eating.mp3');
+      songVidesExtra = p.loadSound('sounds/extra_lives.mp3');
 
     };
   } catch (error) {
@@ -118,6 +122,7 @@ const s = (p) => {
       if (pacman.testCollideFood(p, arrayfood[i])) {
         //arrayfood = arrayfood.filter(item => item !== arrayfood[i]);
         pacman.score = pacman.score + arrayfood[i].score;
+        songEating.play();
         arrayfood.splice(i, 1);
       } else {
         console.log("No xoco, menjar");
@@ -127,6 +132,7 @@ const s = (p) => {
       for (let i = 0; i < arraycor.length; i++) {
           if(pacman.testCollideCor(p, arraycor[i])){
             pacman.vides = pacman.vides + arraycor[i].vides;
+            songVidesExtra.play();
             arraycor.slice(i, 1);
           } else {
             console.log("No xoco amb el cor");
@@ -174,6 +180,7 @@ const s = (p) => {
       p.fill(255);
       p.textSize(20);
       p.text(timer+"s", 470, 660);
+      //Fa sonar la cançó de mort del pacman
       if(timer === 0){
         songFinale.play();
         no.loop();

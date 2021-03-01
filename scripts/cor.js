@@ -1,4 +1,5 @@
-const MES_VIDA = 1;
+const MES_VIDA = 1;//Punt de vida que es suma quan el Pac-man es menja el cor.
+
 class Cor extends GameObject {
 
   constructor(coordX,coordY) {

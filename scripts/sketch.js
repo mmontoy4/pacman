@@ -140,8 +140,8 @@ const s = (p) => {
 
       for (let i = 0; i < arraycor.length; i++) {
         if (pacman.testCollideCor(p, arraycor[i])) {
-          pacman.vides = (pacman.vides + arraycor[i].vides);
-          songVidesExtra.play();
+          //pacman.vides = (pacman.vides + arraycor[i].vides);
+          //songVidesExtra.play();
           arraycor.slice(i, 1);
         } else {
           console.log("No xoco amb el cor");

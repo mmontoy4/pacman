@@ -1,12 +1,24 @@
 var myGame = new Game(); //Nou objecte Game
 var myPacman = new Pacman(); //creo un pacman
-//var myUser = new User(); //usuari localstorage
+//var myUser = new User(); usuari localstorage
+
+var dificulty = 3; //El usuari escollirà la dificultat: 1-Fàcil, 2-Mig, 3-Difícil.
+var timer;
+
+if (dificulty === 1) {
+  timer = 60;
+} else if (dificulty === 2) {
+  timer = 30;
+} else {
+  timer = 15;
+}
+
 const s = (p) => {
 
   var arrayrocks = [];
   var arrayfood = [];
   var arrayghost = [];
-  var arraycor= [];
+  var arraycor = [];
   var ghostImg;
   var foodImg;
   //var fruitImg;
@@ -17,7 +29,6 @@ const s = (p) => {
   var pacAvall;
   var pacEsquerra;
   var pacAmunt;
-  var timer = 10;
   const HEIGHT_TEXT = 30;
   var songStart;
   var songFinale;
@@ -48,10 +59,10 @@ const s = (p) => {
 
   try {
     p.setup = function() {
-      p.createCanvas(myGame.columnsGame * myGame.sizeImage, myGame.rowsGame * myGame.sizeImage+ HEIGHT_TEXT);
+      p.createCanvas(myGame.columnsGame * myGame.sizeImage, myGame.rowsGame * myGame.sizeImage + HEIGHT_TEXT);
 
-      if(timer>0){
-          songStart.play();
+      if (timer > 0) {
+        songStart.play();
       }
 
       pacman = new Pacman(10 * myGame.sizeImage, 11 * myGame.sizeImage);
@@ -77,13 +88,12 @@ const s = (p) => {
           }
         }
 
-        for (let i = 0; i < myGame.rowsGame; i++)
-          for (let j = 0; j < myGame.columnsGame; j++) {
-            if (myGame.mapa[i][j] === 4) {
-              arraycor.push(new Cor(j * myGame.sizeImage, i * myGame.sizeImage));
-            }
+      for (let i = 0; i < myGame.rowsGame; i++)
+        for (let j = 0; j < myGame.columnsGame; j++) {
+          if (myGame.mapa[i][j] === 4) {
+            arraycor.push(new Cor(j * myGame.sizeImage, i * myGame.sizeImage));
           }
-
+        }
 
     }; //acabo setup
   } catch (error) {
@@ -128,15 +138,15 @@ const s = (p) => {
         console.log("No xoco, menjar");
       }
 
-
       for (let i = 0; i < arraycor.length; i++) {
-          if(pacman.testCollideCor(p, arraycor[i])){
-            pacman.vides = pacman.vides + arraycor[i].vides;
-            songVidesExtra.play();
-            arraycor.slice(i, 1);
-          } else {
-            console.log("No xoco amb el cor");
-          }
+        if (pacman.testCollideCor(p, arraycor[i])) {
+          pacman.vides = (pacman.vides + arraycor[i].vides);
+          songVidesExtra.play();
+          arraycor.slice(i, 1);
+        } else {
+          console.log("No xoco amb el cor");
+        }
+
       }
 
     }
@@ -151,70 +161,63 @@ const s = (p) => {
       pacman.showInstanceMode(p, pacAvall);
     }
 
+    // while (timer > 0) {   this doesn't work because it's all happening at the same time
+    //   timer --;
+    // }
 
+    // frameCount --> this keeps track of the number of times the program has gone throught the code, 60 = 1 second
+    // % ---> this is the Modulo operator, it divides numbers and evaluates to the remainder: 17 % 5 evaluates to 2 remainder
+    // this can be used to determine if the number on the left is divisible by the number on the right
 
-      // while (timer > 0) {  // this doesn't work because it's all happening at the same time
-      //   timer --;
-      // }
+    if (p.frameCount % 60 == 0 && timer > 0) { // if the frameCount is divisible by 60, then a second has passed. it will stop at 0
+      timer--;
 
-      // frameCount --> this keeps track of the number of times the program has gone throught the code, 60 = 1 second
-      // % ---> this is the Modulo operator, it divides numbers and evaluates to the remainder: 17 % 5 evaluates to 2 remainder
-      // this can be used to determine if the number on the left is divisible by the number on the right
+    }
 
-      if (p.frameCount % 60 == 0 && timer > 0) { // if the frameCount is divisible by 60, then a second has passed. it will stop at 0
-        timer --;
+    if (timer === 0) {
+      p.text("GAME OVER", 500, 660);
 
-      }
+    } //acacbo temporitzador
 
-      if (timer === 0) {
-        p.text("GAME OVER", 500,660);
+    p.text(pacman.score + " punts", 320, 660);
 
-      } //acacbo temporitzador
+    p.text(pacman.vides + " vides", 100, 660);
 
-
-
-      p.text(pacman.score+" punts", 320, 660);
-
-      p.text(pacman.vides+" vides", 100, 660);
-
-      p.fill(255);
-      p.textSize(20);
-      p.text(timer+"s", 470, 660);
-      //Fa sonar la cançó de mort del pacman
-      if(timer === 0){
-        songFinale.play();
-        no.loop();
-      }
-
+    p.fill(255);
+    p.textSize(20);
+    p.text(timer + "s", 470, 660);
+    //Fa sonar la cançó de mort del pacman
+    if (timer === 0) {
+      songFinale.play();
+      no.loop();
+    }
 
   } //function draw
 
   p.keyPressed = function() {
 
-  //  p.noloop();
+    //  p.noloop();
 
-    if(timer===0){
+    if (timer === 0) {} else {
 
-    }else{
+      let amplejoc = myGame.columnsGame * myGame.sizeImage;
+      let imatgetamany = myGame.sizeImage;
 
-    let amplejoc = myGame.columnsGame * myGame.sizeImage;
-    let imatgetamany = myGame.sizeImage;
+      if (p.keyCode === p.UP_ARROW) {
+        pacman.moveUpper();
+      } else if (p.keyCode === p.DOWN_ARROW) {
+        pacman.moveDown(imatgetamany, amplejoc);
+      }
+      if (p.keyCode === p.LEFT_ARROW) {
+        pacman.moveLeft();
+      } else if (p.keyCode === p.RIGHT_ARROW) {
+        console.log("muevo derecha");
+        pacman.moveRight(imatgetamany, amplejoc);
+      }
+    } //if timer===0
+    //    p.loop();
 
-    if (p.keyCode === p.UP_ARROW) {
-      pacman.moveUpper();
-    } else if (p.keyCode === p.DOWN_ARROW) {
-      pacman.moveDown(imatgetamany, amplejoc);
-    }
-    if (p.keyCode === p.LEFT_ARROW) {
-      pacman.moveLeft();
-    } else if (p.keyCode === p.RIGHT_ARROW) {
-      console.log("muevo derecha");
-      pacman.moveRight(imatgetamany, amplejoc);
-    }
-}//if timer===0
-//    p.loop();
-
-    };
   };
+};
 
 let myp5 = new p5(s, 'myContainer');

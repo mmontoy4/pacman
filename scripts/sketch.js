@@ -49,7 +49,7 @@ const s = (p) => {
       corImg = p.loadImage("images/cor.png");
       songStart = p.loadSound('sounds/pacman_beginning.mp3');
       songFinale = p.loadSound('sounds/pacman_death.mp3');
-      songEating = p.loadSound('sounds/eating.mp3');
+      songEating = p.loadSound('sounds/eating_short.mp3');
       songVidesExtra = p.loadSound('sounds/extra_lives.mp3');
 
     };

@@ -2,15 +2,15 @@ var myGame = new Game(); //Nou objecte Game
 var myPacman = new Pacman(); //creo un pacman
 //var myUser = new User(); usuari localstorage
 
-var dificulty = 3; //El usuari escollirà la dificultat: 1-Fàcil, 2-Mig, 3-Difícil.
+var dificulty = 1; //El usuari escollirà la dificultat: 1-Fàcil, 2-Mig, 3-Difícil.
 var timer;
 
 if (dificulty === 1) {
-  timer = 60;
+  timer = 90;
 } else if (dificulty === 2) {
-  timer = 30;
+  timer = 60;
 } else {
-  timer = 15;
+  timer = 30;
 }
 
 const s = (p) => {

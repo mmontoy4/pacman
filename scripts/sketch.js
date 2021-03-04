@@ -2,7 +2,7 @@ var myGame = new Game(); //Nou objecte Game
 var myPacman = new Pacman(); //creo un pacman
 //var myUser = new User(); usuari localstorage
 
-var dificulty = 1; //El usuari escollirà la dificultat: 1-Fàcil, 2-Mig, 3-Difícil.
+var dificulty = 3; //El usuari escollirà la dificultat: 1-Fàcil, 2-Mig, 3-Difícil.
 var timer;
 
 if (dificulty === 1) {
@@ -189,7 +189,7 @@ const s = (p) => {
     //Fa sonar la cançó de mort del pacman
     if (timer === 0) {
       songFinale.play();
-      no.loop();
+      p.noloop();
     }
 
   } //function draw

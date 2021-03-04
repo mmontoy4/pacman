@@ -57,6 +57,45 @@ header{
 
 }
 
+.formulari{
+  border: 15px solid #fb8500;
+  border-radius: 20px;
+  width:20%;
+  padding: 20px;
+  margin-left: 60px;
+  margin-top: 5%;
+}
+
+form h3{
+  font-family: 'RocknRoll One', sans-serif;
+}
+
+form label{
+	width: 95px;
+	font-weight:bold;
+	display:inline-block;
+  font-family: 'RocknRoll One', sans-serif;
+  color:black;
+}
+
+form input[type="text"],
+form input[type="email"]{
+	width:180px;
+	padding:3px 10px;
+	border:1px solid #023047;
+	border-radius:3px;
+	background-color:#fb8500;
+	margin:8px 0;
+	display:inline-block;
+}
+
+button{
+  margin-left: 66.666%;
+  font-family: 'DotGothic16', sans-serif;
+
+}
+
+
 .drets{
   position:absolute;
   top: 75%;
@@ -75,7 +114,7 @@ font-family: 'DotGothic16', sans-serif;
 
 .peu{
   position:absolute;
-  top: 92%;
+  top: 91%;
   right:75%;
   border: 3px solid white;
   width: 380px;

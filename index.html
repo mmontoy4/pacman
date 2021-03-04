@@ -35,6 +35,29 @@
     <li><a href="#inici">Inici</a></li>
   </ul>
 
+  <button class="boto1" onclick="mostrarOcultar()">Informació sobre el sistema</button>
+  <div id="dades" style="display: none">
+    <table>
+      <td>
+    <script>
+
+      document.write(" ▪ Nom del Navegador i versió: ");
+      document.write(navigator.userAgent + "<br>");;
+      document.write(" ▪ Versió del HTML: ");
+      document.write(navigator.appVersion + "<br>");
+      document.write(" ▪ Propietari del Navegador: ");
+      document.write(navigator.appCodeName + "<br>");
+      document.write(" ▪ Plataforma del S.O: ");
+      document.write(navigator.platform + "<br>");
+      document.write(" ▪ Galetes (true / false): ");
+      document.write(navigator.cookieEnabled + "<br>");
+
+    </script>
+    </td>
+    </table>
+  </div>
+
+
   <div class="formulari">
     <form>
       <h3>Emplena les dades per poder jugar</h3>
@@ -71,6 +94,14 @@
   </footer>
 
 </body>
-
-
 </html>
+<script>
+  function mostrarOcultar() {
+    var x = document.getElementById("dades");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
+</script>

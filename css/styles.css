@@ -128,3 +128,12 @@ div.peu p{
   margin: 10px;
   font-family: 'DotGothic16', sans-serif;
 }
+
+div#dades{
+  float:right;
+  margin-left:30px;
+  width: 30%;
+}
+button.boto1{
+  float:right;
+}

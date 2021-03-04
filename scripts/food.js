@@ -1,4 +1,4 @@
-const FOOD_SCORE = 500; //Punts que obtens al menjar-te la bola
+const FOOD_SCORE = 10; //Punts que obtens al menjar-te la bola
 
 class Food extends GameObject {
 

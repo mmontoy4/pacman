@@ -175,17 +175,17 @@ const s = (p) => {
     }
 
     if (timer === 0) {
-      p.text("GAME OVER", 500, 660);
+      p.text("GAME OVER", 448, 660);
 
     } //acacbo temporitzador
 
-    p.text(pacman.score + " punts", 320, 660);
+    p.text(pacman.score + " punts", 224, 660);
 
-    p.text(pacman.vides + " vides", 100, 660);
+    p.text(pacman.vides + " vides", 64, 660);
 
     p.fill(255);
     p.textSize(20);
-    p.text(timer + "s", 470, 660);
+    p.text(timer + "s", 416, 660);
     //Fa sonar la cançó de mort del pacman
     if (timer === 0) {
       songFinale.play();

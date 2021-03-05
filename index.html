@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/styles.css" />
+  <link rel="shortcut icon" type="image/x-icon" href="images/pac1.png" />
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Denk+One&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
@@ -52,7 +53,7 @@
       <label>Usuari:</label><input type="text" id="nom"/><br />
       <label>Email:</label><input type="text" id="email"/><br />
       <label>Dificultat:</label><input type="text" id="dificulty"/><br />
-      <button type="button" onclick="dades()">Envia</button>
+      <button type="button" onclick="dades()"><a href="joc.html">Envia</a></button>
     </form>
   </div>
   <div class="instruccions">
@@ -84,7 +85,7 @@
     let difi = $("#dificulty").val();
     console.log(nom, email, difi);
     if(difi === "3" || difi === "2" || difi === "1"){
-    
+
       if(nom != null && email != null){
         localStorage.setItem('nom', nom);
         localStorage.setItem('email', email);

@@ -1,5 +1,3 @@
-//var myUser = new User(); usuari localstorage
-
 const s = (p) => {
 
   var myGame = new Game(); //Nou objecte Game
@@ -194,6 +192,13 @@ const s = (p) => {
     //Fa sonar la cançó de mort del pacman
     if (timer === 0) {
       songFinale.play();
+      p.noloop();
+    }
+
+    if(pacman.score === 1490){
+      p.fill(0,255,0);
+      p.textSize(50);
+      p.text("HAS GUANYAT",128,336);
       p.noloop();
     }
 

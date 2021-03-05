@@ -39,7 +39,7 @@ li a:hover:not(.active) {
   color: black;
 }
 /*Contenedor PACMAN*/
-#myContainer{
+#canvas{
     position:absolute;
     top: 280px;
     right:33.333%;
@@ -149,4 +149,3 @@ button.boto1{
   color: white;
   padding: 10px;
 }
-  

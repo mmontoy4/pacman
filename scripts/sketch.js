@@ -59,7 +59,9 @@ const s = (p) => {
 
   try {
     p.setup = function() {
-      p.createCanvas(myGame.columnsGame * myGame.sizeImage, myGame.rowsGame * myGame.sizeImage + HEIGHT_TEXT);
+      canvas = p.createCanvas(myGame.columnsGame * myGame.sizeImage, myGame.rowsGame * myGame.sizeImage + HEIGHT_TEXT);
+    canvas.parent('canvas');
+      
 
       if (timer > 0) {
         songStart.play();

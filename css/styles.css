@@ -62,8 +62,9 @@ header{
   border-radius: 20px;
   width:20%;
   padding: 20px;
-  margin-left: 60px;
+  margin-left: 40%;
   margin-top: 5%;
+  margin-bottom: 5%;
 }
 
 form h3{
@@ -137,3 +138,15 @@ div#dades{
 button.boto1{
   float:right;
 }
+.instruccions{
+  border: 10px solid black;
+  border-radius: 15px;
+  width: 30%;
+  float:right;
+  margin-right: 33%;
+  font-family: 'DotGothic16', sans-serif;
+  background-color: black;
+  color: white;
+  padding: 10px;
+}
+  

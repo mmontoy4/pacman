@@ -9,19 +9,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Denk+One&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
   <title>PACMAN</title>
-  <script src="scripts/library/p5.js"></script>
-  <script src="scripts/library/addons/p5.sound.min.js"></script>
-  <script src="scripts/library/p5.collide2d.js"></script>
-  <script src="scripts/gameobject.js"></script>
-  <script src="scripts/game.js"></script>
-  <script src="scripts/pacman.js"></script>
-  <script src="scripts/rock.js"></script>
-  <script src="scripts/sketch.js"></script>
-  <script src="scripts/food.js"></script>
-  <script src="scripts/cor.js"></script>
-  <script src="scripts/user.js"></script>
-  <script src="scripts/ghost.js"></script>
 </head>
 
 <body>
@@ -32,10 +21,11 @@
   </header>
   <ul>
     <li><a class="active" href="#pacman">PACMAN</a></li>
-    <li><a href="#inici">Inici</a></li>
+    <li><a href="index.html">Inici</a></li>
+    <li><a href="joc.html">Joc</a></li>
   </ul>
 
-  <button class="boto1" onclick="mostrarOcultar()">Informació sobre el sistema</button>
+<button class="boto1" onclick="mostrarOcultar()">Informació sobre el sistema</button>
   <div id="dades" style="display: none">
     <table>
       <td>
@@ -56,35 +46,20 @@
     </td>
     </table>
   </div>
-
-
   <div class="formulari">
     <form>
       <h3>Emplena les dades per poder jugar</h3>
-      <label>Usuari:</label><input type="text" /><br />
-      <label>Punts:</label><input type="text" /><br />
-      <label>Dificultat:</label><input type="text" /><br />
-      <button>Envia</button>
+      <label>Usuari:</label><input type="text" id="nom"/><br />
+      <label>Email:</label><input type="text" id="email"/><br />
+      <label>Dificultat:</label><input type="text" id="dificulty"/><br />
+      <button type="button" onclick="dades()">Envia</button>
     </form>
   </div>
-
-
-  <main>
-  </main>
-  <div id="myContainer" >
-
+  <div class="instruccions">
+    <h3>Com jugar</h3>
+    <p>Jugar al Pacman és molt senzill.</p>
+    <p>Només cal que controlis el Pacman amb les fletxetes del teclat i arrasar amb tot al teu pas!</p>
   </div>
-
-  <div class="drets" >
-
-
-    <p>p5.js ha estat creat per Lauren Lee McCarthy conjuntament amb la comunitat de col·laboradors.</p>
-    <p>El joc Pacman va ser creat per Toru Iwatani.</p>
-
-  </div>
-<div style="position: absolute; top: 50%; margin-left: 80%;">
-  <img src="images/pacmann.png" alt="Pacman" width="300px"/>
-</div>
   <footer>
     <div class="peu">
       <p>
@@ -92,7 +67,6 @@
       </p>
     </div>
   </footer>
-
 </body>
 </html>
 <script>
@@ -102,6 +76,22 @@
       x.style.display = "block";
     } else {
       x.style.display = "none";
+    }
+  }
+  function dades(){
+    let nom = $("#nom").val();
+    let email = $("#email").val();
+    let difi = $("#dificulty").val();
+    console.log(nom, email, difi);
+    if(difi === "3" || difi === "2" || difi === "1"){
+    
+      if(nom != null && email != null){
+        localStorage.setItem('nom', nom);
+        localStorage.setItem('email', email);
+        localStorage.setItem('difi', difi);
+      }
+    }else if(difi !== ""){
+      alert("La dificultat sol pot ser 1 o 2 o 3");
     }
   }
 </script>

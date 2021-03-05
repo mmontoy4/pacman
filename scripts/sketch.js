@@ -1,20 +1,22 @@
-var myGame = new Game(); //Nou objecte Game
-var myPacman = new Pacman(); //creo un pacman
 //var myUser = new User(); usuari localstorage
-var  difi = localStorage.getItem("difi");
-console.log(difi);
- //El usuari escollirà la dificultat: 1-Fàcil, 2-Mig, 3-Difícil.
-var timer;
-
-if (difi === "1") {
-  timer = 90;
-} else if (difi === "2") {
-  timer = 60;
-} else if (difi ==="3") {
-  timer = 30;
-}
 
 const s = (p) => {
+
+  var myGame = new Game(); //Nou objecte Game
+  var myPacman = new Pacman(); //creo un pacman
+
+  var  difi = localStorage.getItem("difi");
+  console.log(difi);
+   //El usuari escollirà la dificultat: 1-Fàcil, 2-Mig, 3-Difícil.
+  var timer;
+
+  if (difi === "1") {
+    timer = 90;
+  } else if (difi === "2") {
+    timer = 60;
+  } else if (difi ==="3") {
+    timer = 30;
+  }
 
   var arrayrocks = [];
   var arrayfood = [];

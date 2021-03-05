@@ -39,7 +39,7 @@ li a:hover:not(.active) {
   color: black;
 }
 /*Contenedor PACMAN*/
-div #canvas{
+#canvas{
     position:absolute;
     top: 280px;
     right:33.333%;

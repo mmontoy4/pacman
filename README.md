@@ -2,7 +2,7 @@
 >Fet per: Marta Montoya Anton
 >Institut Almatà
 ### Vista general de la pàgina web
-![vista general](https://i.imgur.com/ct09q1N.png)
+![vista general index](https://user-images.githubusercontent.com/71660892/110128035-a333a700-7dc6-11eb-93a5-711b317315e0.png)
 >La pàgina estarà publicada a Github Pages.
 ##### Contingut del projecte
 * Pàgina web (index.html).

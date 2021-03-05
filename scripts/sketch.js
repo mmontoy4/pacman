@@ -2,6 +2,7 @@ var myGame = new Game(); //Nou objecte Game
 var myPacman = new Pacman(); //creo un pacman
 //var myUser = new User(); usuari localstorage
 var  difi = localStorage.getItem("difi");
+console.log(difi);
  //El usuari escollirà la dificultat: 1-Fàcil, 2-Mig, 3-Difícil.
 var timer;
 
